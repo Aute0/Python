@@ -2,7 +2,7 @@
 #  ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
 
 
-def inputNumbers(x):
+def input_user_num(x):
     xyz = ["X", "Y", "Z"]
     a = []
     for i in range(x):
@@ -10,16 +10,16 @@ def inputNumbers(x):
     return a
 
 
-def checkPredicate(x):
+def check_true_false(x):
     left = not (x[0] or x[1] or x[2])
     right = not x[0] and not x[1] and not x[2]
     result = left == right
     return result
 
 
-statement = inputNumbers(3)
+statement = input_user_num(3)
 
-if checkPredicate(statement) == True:
+if check_true_false(statement) == True:
     print(f"Утверждение истинно")
 else:
     print(f"Утверждение ложно")
