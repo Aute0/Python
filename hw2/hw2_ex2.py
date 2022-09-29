@@ -4,10 +4,26 @@
 
 # В данном случае самым очевидным способом решения будет реализовать факториал.
 
-UserNumber = int(input('Введите число:  '))
-ResultFact = 1
-while UserNumber > 1:
-    ResultFact  *= UserNumber
-    UserNumber -= 1
- 
-print(ResultFact)
+print("Программа выведет набор произведений чисел от 1 до выбранного вами N")
+UserNumber = int(input('Введите число N:  '))
+UserList = []
+
+
+def CalcFact(UserNumber):
+    if UserNumber == 1:
+        return 1
+    else:
+        return UserNumber * CalcFact(UserNumber - 1)
+
+
+for i in range(1, UserNumber+1):
+    UserList.append(CalcFact(i))
+print(UserList)
+
+
+
+
+
+
+
+
