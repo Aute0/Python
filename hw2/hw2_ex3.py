@@ -1,12 +1,14 @@
 ##  Задайте список из n чисел последовательности $(1 +\frac 1 n) ^ n$ и выведите на экран их сумму.
 #   Пример: - Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
 
-UserNumber = float(input('Введите число:  '))
-Result = 0
-SumResult = 2
-while UserNumber > 1:
-    Result = (1 +1/(UserNumber))**(UserNumber)
-    SumResult = SumResult + Result
-    UserNumber -= 1
+print('Программа выводит последовательность чисел типа (1+1/n)^n и сумму всех чисел до указанного n')
+UserNumber = int(input('Введите n:  '))
+UserList = [round(((1+1/n)**n),3) for n in range(1,UserNumber+1)]
+print(F'Ваша числовая последовательность: {UserList}')
 
-print(UserNumber, SumResult)
+sum = 0
+for i in range(0, len(UserList)):
+    sum += UserList[i]
+print(F"Сумма чисел в последовательности = {round(sum,3)}")
+
+
