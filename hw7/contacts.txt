@@ -1,0 +1,5 @@
+ # this .txt file is used to store contacts
+ name - number
+ John - 788451212
+ Tim - 744111222
+ Evan - 123456231
