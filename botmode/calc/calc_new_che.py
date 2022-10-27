@@ -1,13 +1,22 @@
 import telebot
-import datetime
 import time
 import math
 import re
 from telebot import types
+from datetime import datetime
+from imaplib import Commands
 
-BOT_TOKEN = ''  # Токен Телеграм-бота
+# name      	    |argument(s)                        |Condition
+# ------------------|-----------------------------------|-------------------------------------------------------
+# content_types 	|list of strings(default['text']) 	|True if message.content_type is in the list of strings.
+# regexp 	        |a regular expression as a string 	|True if re.search(regexp_arg) returns True and message.content_type == 'text' (See Python Regular Expressions)
+# commands 	        |list of strings 	                |True if message.content_type == 'text' and message.text starts with a command that is in the list of strings.
+# chat_types 	    |list of chat types 	            |True if message.chat.type in your filter
+# func 	            |a function(lambda or function ref) |True if the lambda or function reference returns True
+
+BOT_TOKEN = '5600774130:AAFgX-Q5vQ2RCEIsh908iXDy9liuUr1VR84'  # Токен Телеграм-бота
 # Имя для бота. Нужно в том случае, если вы хотите обращаться к боту по имени
-BOT_NAME = 'calc_bot'
+BOT_NAME = 'bot_for_games_che'
 bot = telebot.TeleBot(BOT_TOKEN)
 
 TIMEOUT_CONNECTION = 5  # Таймаут переподключения
@@ -114,20 +123,20 @@ def send_start(message):
 
 @bot.message_handler(func=lambda message: True)
 def answer_to_user(message):
-    print('%s (%s): %s' % (message.chat.first_name,
-          message.chat.username, message.text))
-    msg = None
+    #print('%s (%s): %s' % (message.chat.first_name,
+    #      message.chat.username, message.text))
+    #msg = None
 
     user_message = message.text.lower()
 
-    if BOT_NAME:
-        regex = re.compile(BOT_NAME.lower())
-        print(regex.search(user_message))
-        if regex.search(user_message) == None:
-            return
-
-        regex = re.compile('%s[^a-z]' % (BOT_NAME.lower()))
-        user_message = regex.sub("", user_message)
+    #if BOT_NAME:
+    #    regex = re.compile(BOT_NAME.lower())
+    #    print(regex.search(user_message))
+    #    if regex.search(user_message) == None:
+    #        return
+#
+#        regex = re.compile('%s[^a-z]' % (BOT_NAME.lower()))
+#        user_message = regex.sub("", user_message)
 
     user_message = user_message.lstrip()
     user_message = user_message.rstrip()
