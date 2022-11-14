@@ -170,6 +170,7 @@ def answer_to_user(message):
             msg = bot.send_message(
                 message.chat.id, 'В выражении вы делите на ноль. \nИсравьте ошибку и повторите снова')
 
+
     if (msg):
         print('Бот: %s' % msg.text)
 
